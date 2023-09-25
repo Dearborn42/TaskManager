@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    
+    <% tasks.forEach((task)=> { %>
+        <input type="checkbox" id="checkbox">
+        <span id="<%=task.id%>"><%= task.name %></span>
+        <button onclick="createTask()">Create Task</button>
+        <button onclick="editTaskName('<%= task.id %>')">Edit Name</button>
+        <button onclick="editTaskDesc('<%= task.id %>')">Edit Desc</button>
+        <button onclick="deleteTask('<%= task.id %>')">Delete</button>
+        <br>
+        <span><%=task.description%></span>
+        <br>
+    <% }); %>
+    <script src="../check.js"></script>
+</body>
+</html>
