@@ -5,10 +5,12 @@ window.onload = function() {
     checkboxes.forEach((x) => {
         x.addEventListener("change", function() {
             if (this.checked){
+                document.getElementsByClassName(this.classList[0])[0].classList.add("crossed-out");
                 document.getElementsByClassName(this.classList[0])[1].classList.add("completed");
                 document.getElementsByClassName(this.classList[0])[2].classList.add("completed");
             }  
             else{
+                document.getElementsByClassName(this.classList[0])[0].classList.remove("crossed-out");
                 document.getElementsByClassName(this.classList[0])[1].classList.remove("completed");
                 document.getElementsByClassName(this.classList[0])[2].classList.remove("completed");
             }

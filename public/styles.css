@@ -1,3 +1,76 @@
 .completed {
     text-decoration: line-through;
 }
+
+.remove{
+    border-radius: 20px;
+    background-color: red;
+    width: 20%;
+}
+
+.edit{
+    border-radius: 20px;
+    background-color: lightgreen;
+    width: 20%;
+}
+
+.container{
+    width: 35%;
+    background-color: rgb(193, 193, 193);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+.create{
+    width: 20%;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: black; */
+}
+
+.crossed-out {
+    position: relative;
+    /* Required for pseudo-elements */
+    text-decoration: line-through;
+    /* Add a basic line-through */
+}
+
+.crossed-out::before,
+.crossed-out::after {
+    content: '';
+    /* Required for pseudo-elements */
+    position: absolute;
+    top: 50%;
+    /* Adjust this value to control the position of lines */
+    width: 100%;
+    height: 2px;
+    /* Adjust the line thickness as needed */
+    background-color: black;
+    /* Adjust the line color as needed */
+}
+
+.crossed-out::before {
+    transform: rotate(10.8deg);
+    /* Rotate the line to create a diagonal line */
+    left: 0;
+}
+
+.crossed-out::after {
+    transform: rotate(-10.8deg);
+    /* Rotate the line to create another diagonal line */
+    right: 0;
+}

@@ -48,10 +48,11 @@ export async function editTasksDesc(req, res){
 export async function createTask(req, res){
     const {name, desc} = req.body;
     try{
-        const count = await task.countDocuments({});
-        const id = count;
+        const count = await task.find({});
+        const id = count.map(task => task.id);
+        const newID = Math.max(...id);
         const newTask = await task.create({
-            "id": id,
+            "id": newID + 1,
             name,
             "description": desc
         })

@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <button onclick="createTask()">Create Task</button>
+    <button onclick="createTask()" class="create">Create Task</button>
     <br>
-    <% tasks.forEach((task)=> { %>
-        <input type="checkbox" id="checkbox" class="<%= task.id %>">
-        <span class="<%=task.id%>"><%= task.name %></span>
-        <button onclick="editTaskName('<%= task.id %>')">Edit Name</button>
-        <button onclick="editTaskDesc('<%= task.id %>')">Edit Desc</button>
-        <button onclick="deleteTask('<%= task.id %>')">Delete</button>
-        <br>
-        <span class="<%=task.id%>"><%=task.description%></span>
-        <br>
-        <br>
-    <% }); %>
+    <div class="main">
+        <% tasks.forEach((task)=> { %>
+            <div class="container <%=task.id%>">
+                <div>
+                    <input type="checkbox" id="checkbox" class="<%= task.id %>">
+                    <span class="<%=task.id%>"><%= task.name %></span>
+                </div>
+                <button onclick="editTaskName('<%= task.id %>')" class="edit">Edit Name</button>
+                <button onclick="editTaskDesc('<%= task.id %>')" class="edit">Edit Desc</button>
+                <button onclick="deleteTask('<%= task.id %>')" class="remove">Delete</button>
+                <br>
+                <span class="<%=task.id%>"><%=task.description%></span>
+            </div>
+        <% }); %>
+    </div>
     <script src="../check.js"></script>
 </body>
 </html>
