@@ -9,9 +9,12 @@ dotenv.config();
 mongoose.connect(process.env.MONGO)
 
 export async function getTasks(req, res){
-    const tasks = await task.find({}).then((x)=>{   
-        res.status(202).render(path.join(__dirname, "../public/interface.ejs"), {tasks: x});
-    })
+    const tasks = await task.find({}).then((docs, err) => {
+        if (err)
+            console.error(err);
+        else
+           res.status(202).render(path.join(__dirname, "../public/interface.ejs"), {tasks: docs});
+    });
 }
 
 export async function editTasksName(req, res){
@@ -52,7 +55,6 @@ export async function createTask(req, res){
             name,
             "description": desc
         })
-        newTask.validate();
         newTask.save();
         res.status(200).json({success: true});
     }catch(e){

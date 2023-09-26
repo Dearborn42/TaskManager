@@ -40,4 +40,22 @@ function editTaskDesc(id){
 function createTask(){
     const name = prompt("Please enter the name");
     const desc = prompt("Please enter the desc"); 
+    fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name: name, desc: desc})
+    }).then((res) => {
+        if(res.status === 200)
+            window.location.reload();
+    })
+}
+
+function deleteTask(id){
+    fetch(`/${id}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    }).then((res) => {
+        if(res.status === 200)
+            window.location.reload();
+    })
 }
