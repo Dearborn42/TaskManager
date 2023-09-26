@@ -2,14 +2,18 @@
 
 window.onload = function() {
     const checkboxes = document.querySelectorAll("#checkbox");
-    for(let i=0; i<checkboxes.length; i++) {
-        checkboxes[i].addEventListener("change", function() {
-            if (this.checked)
-                document.getElementById(`${i+1}`).classList.add("completed");
-            else
-                document.getElementById(`${i+1}`).classList.remove("completed");
+    checkboxes.forEach((x) => {
+        x.addEventListener("change", function() {
+            if (this.checked){
+                document.getElementsByClassName(this.classList[0])[1].classList.add("completed");
+                document.getElementsByClassName(this.classList[0])[2].classList.add("completed");
+            }  
+            else{
+                document.getElementsByClassName(this.classList[0])[1].classList.remove("completed");
+                document.getElementsByClassName(this.classList[0])[2].classList.remove("completed");
+            }
         });
-    }
+    })
 };
 
 

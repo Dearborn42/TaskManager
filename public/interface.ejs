@@ -10,13 +10,14 @@
     <button onclick="createTask()">Create Task</button>
     <br>
     <% tasks.forEach((task)=> { %>
-        <input type="checkbox" id="checkbox">
-        <span id="<%=task.id%>"><%= task.name %></span>
+        <input type="checkbox" id="checkbox" class="<%= task.id %>">
+        <span class="<%=task.id%>"><%= task.name %></span>
         <button onclick="editTaskName('<%= task.id %>')">Edit Name</button>
         <button onclick="editTaskDesc('<%= task.id %>')">Edit Desc</button>
         <button onclick="deleteTask('<%= task.id %>')">Delete</button>
         <br>
-        <span><%=task.description%></span>
+        <span class="<%=task.id%>"><%=task.description%></span>
+        <br>
         <br>
     <% }); %>
     <script src="../check.js"></script>
