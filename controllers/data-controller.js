@@ -50,7 +50,11 @@ export async function createTask(req, res){
     try{
         const count = await task.find({});
         const id = count.map(task => task.id);
-        const newID = Math.max(...id);
+        if(id.length > 0){
+            var newID = Math.max(...id);
+        }else{
+            var newID = 0;
+        }
         const newTask = await task.create({
             "id": newID + 1,
             name,

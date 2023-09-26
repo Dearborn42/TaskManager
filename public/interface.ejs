@@ -11,16 +11,19 @@
     <br>
     <div class="main">
         <% tasks.forEach((task)=> { %>
-            <div class="container <%=task.id%>">
+            <div class="container result <%=task.id%>">
                 <div>
                     <input type="checkbox" id="checkbox" class="<%= task.id %>">
                     <span class="<%=task.id%>"><%= task.name %></span>
                 </div>
-                <button onclick="editTaskName('<%= task.id %>')" class="edit">Edit Name</button>
-                <button onclick="editTaskDesc('<%= task.id %>')" class="edit">Edit Desc</button>
-                <button onclick="deleteTask('<%= task.id %>')" class="remove">Delete</button>
-                <br>
-                <span class="<%=task.id%>"><%=task.description%></span>
+                <span class="<%=task.id%>">
+                    <%=task.description%>
+                </span>
+                <div>
+                    <button onclick="editTaskName('<%= task.id %>')">Edit Name</button>
+                    <button onclick="editTaskDesc('<%= task.id %>')">Edit Desc</button>
+                    <button onclick="deleteTask('<%= task.id %>')">Delete</button>
+                </div>
             </div>
         <% }); %>
     </div>
