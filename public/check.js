@@ -21,7 +21,7 @@ window.onload = function() {
 
 function editTaskName(id){
     const name = prompt("Please enter a new name");
-    fetch(`/name/${id}`, {
+    fetch(`/users/name/${id}`, {
         method: "PUT",
         headers: {'Content-type': "application/json"},
         body: JSON.stringify({name})
@@ -33,7 +33,7 @@ function editTaskName(id){
 
 function editTaskDesc(id){
     const desc = prompt("Please enter a new desc");
-    fetch(`/desc/${id}`, {
+    fetch(`/users/desc/${id}`, {
         method: "PUT",
         headers: {'Content-type': "application/json"},
         body: JSON.stringify({desc})
@@ -46,7 +46,7 @@ function editTaskDesc(id){
 function createTask(){
     const name = prompt("Please enter the name");
     const desc = prompt("Please enter the desc"); 
-    fetch('/', {
+    fetch('/users', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({name: name, desc: desc})
@@ -57,7 +57,7 @@ function createTask(){
 }
 
 function deleteTask(id){
-    fetch(`/${id}`, {
+    fetch(`/users/${id}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
     }).then((res) => {

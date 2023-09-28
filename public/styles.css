@@ -32,6 +32,10 @@
     width: 20%;
 }
 
+.column{
+    width: 50%;
+}
+
 .main{
     display: flex;
     justify-content: space-around;
@@ -42,7 +46,6 @@
 body{
     display: flex;
     align-items: center;
-    flex-direction: column;
     background: var(--backgroundColor);
     color: var(--textColor);
     font-family: var(--bodyFont);
@@ -82,6 +85,8 @@ body{
     /* Rotate the line to create another diagonal line */
     right: 0;
 }
+
+
 
 *,
 ::after,
@@ -388,4 +393,11 @@ h5+h5 {
 .alert-danger {
     width: 600px;
     text-align: center;
+}
+
+
+.main-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }

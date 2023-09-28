@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="column">
+            <button onclick="createUser()" class="create">Create User</button>
+            <br>
+            <div class="main">
+                <% users.forEach((user)=> { %>
+                    <div class="container result <%=user.id%>">
+                        <span>Name:<%=user.name%></span>
+                        <span>Email:<%=user.email%></span>
+                        <span>Assigned tasks:<%=user.tasks%></span>
+                        <button onclick="assignTask('<%=user.email%>')">Assign tasks</button>
+                        <button onclick="removeTask('<%=user.email%>')">Remove tasks</button>
+                        <button onclick="editUser('<%=user.email%>')">Edit user</button>
+                        <button onclick="deleteUser('<%=user.email%>')">Delete user</button>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+        <div class="column">
+            <button onclick="createTask()" class="create">Create Task</button>
+            <br>
+            <div class="main">
+                <% tasks.forEach((task)=> { %>
+                    <div class="container result <%=task.id%>">
+                        <div>
+                            <input type="checkbox" id="checkbox" class="<%= task.id %>">
+                            <span class="<%=task.id%>">
+                                <%= task.name %>
+                            </span>
+                        </div>
+                        <span class="<%=task.id%>">
+                            <%=task.description%>
+                        </span>
+                        <div>
+                            <button onclick="editTaskName('<%= task.id %>')">Edit Name</button>
+                            <button onclick="editTaskDesc('<%= task.id %>')">Edit Desc</button>
+                            <button onclick="deleteTask('<%= task.id %>')">Delete</button>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+    </div>
+    <script src="../check.js"></script>
+    <script src="../adminFunctions.js"></script>
+</body>
+
+</html>
