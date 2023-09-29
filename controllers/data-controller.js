@@ -11,6 +11,7 @@ mongoose.connect(process.env.MONGO)
 export async function getTasks(req, res){
     const {secret} = req.session;
     const person = await user.findOne({"password": secret});
+    console.log(person.tasks);
     const tasks = await task.findOne({"name": person.tasks}).then((docs, err) => {
         if (err)
             console.error(err);

@@ -14,7 +14,7 @@ export async function assign(req, res){
         const {email, tasks} = req.body;
         const assignedTask = await task.findOne({name: tasks}).then(task => {return task});
         const target = await user.findOneAndUpdate(
-            {"email": email},
+            {"email": email.trim()},
             {$set: {tasks: assignedTask.name}},
             {new: true}
         );
@@ -68,7 +68,7 @@ export async function deleteUser(req, res){
 export async function createUser(req, res){
     try {
         const {token} = req.query;
-        const {email, name, password, image} = req.body;
+        const {email, name, password, image, age} = req.body;
         const count = await user.find({});
         const id = count.map(users => users.id);
         if(id.length > 0){
@@ -79,6 +79,7 @@ export async function createUser(req, res){
         const target = new user({
             name,
             email,
+            age,
             password,
             id: newID,
             "profile_pic": image

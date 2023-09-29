@@ -19,14 +19,30 @@
                     <div class="container result <%=user.id%> user_search">
                         <img src="<%=user['profile_pic']%>" alt="" srcset="">
                         <span>Name:<%=user.name%></span>
-                        <span>Email:<%=user.email%></span>
+                        <span>Email:</span>
+                        <span><%=user.email%></span>
+                        <span>Age: <%=user.age%></span>
                         <span>Assigned tasks:<%=user.tasks%></span>
-                        <button onclick="assignTask('<%=user.email%>')">Assign tasks</button>
+                        <button onclick="modal(' <%=user.email%>')" class="openDropdown">Assign tasks</button>
                         <button onclick="removeTask('<%=user.email%>')">Remove tasks</button>
                         <button onclick="editUser('<%=user.email%>')">Edit user</button>
                         <button onclick="deleteUser('<%=user.email%>')">Delete user</button>
                     </div>
                     <% }); %>
+            </div>
+        </div>
+        
+        <!-- Hidden dropdown menu -->
+        <div id="dropdownModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeDropdown">&times;</span>
+                <label for="dropdown">Select an option:</label>
+                <select id="dropdown">
+                    <% tasks.forEach((task)=> { %>
+                    <option value="<%=task.name%>"><%=task.name%></option>
+                    <% }); %>
+                </select>
+                <button id="submitDropdown">Submit</button>
             </div>
         </div>
         <div class="column">
