@@ -7,21 +7,19 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <button onclick="createTask()" class="create">Create Task</button>
-    <br>
     <div class="main">
-            <div class="container result <%=tasks.id%>">
+            <div class="container result <%=docs.id%>">
                 <div>
-                    <input type="checkbox" id="checkbox" class="<%= tasks.id %>">
-                    <span class="<%=tasks.id%>"><%= tasks.name %></span>
+                    <input type="checkbox" id="checkbox" class="<%= docs.id %>">
+                    <span class="<%=docs.id%>"><%= docs.name %></span>
                 </div>
-                <span class="<%=tasks.id%>">
-                    <%=tasks.description%>
+                <span class="<%=docs.id%>">
+                    <%=docs.description%>
                 </span>
                 <div>
-                    <button onclick="editTaskName('<%= tasks.id %>')">Edit Name</button>
-                    <button onclick="editTaskDesc('<%= tasks.id %>')">Edit Desc</button>
-                    <button onclick="deleteTask('<%= tasks.id %>')">Delete</button>
+                    <button onclick="editTaskName('<%= docs.id %>')">Edit Name</button>
+                    <button onclick="editTaskDesc('<%= docs.id %>')">Edit Desc</button>
+                    <button onclick="deleteTask('<%= docs.id %>')">Delete</button>
                 </div>
             </div>
     </div>

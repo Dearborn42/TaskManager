@@ -29,8 +29,12 @@ const user_account = new Schema({
         validate:{validator: (value)=>{return typeof value === "number"}},
     },
     "tasks":{
-        type: Array,
+        type: String,
         default: ""
+    },
+    "profile_pic": {
+        type: String,
+        default: "https://i.stack.imgur.com/34AD2.jpg"
     }
 }, { collection: 'users'})
 

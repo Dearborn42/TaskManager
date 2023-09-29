@@ -12,10 +12,12 @@
     <div class="main-container">
         <div class="column">
             <button onclick="createUser()" class="create">Create User</button>
+            <input type="text" id="searchUsers" placeholder="Search">
             <br>
             <div class="main">
                 <% users.forEach((user)=> { %>
-                    <div class="container result <%=user.id%>">
+                    <div class="container result <%=user.id%> user_search">
+                        <img src="<%=user['profile_pic']%>" alt="" srcset="">
                         <span>Name:<%=user.name%></span>
                         <span>Email:<%=user.email%></span>
                         <span>Assigned tasks:<%=user.tasks%></span>
@@ -29,12 +31,12 @@
         </div>
         <div class="column">
             <button onclick="createTask()" class="create">Create Task</button>
+            <input type="text" id="searchTasks" placeholder="Search">
             <br>
             <div class="main">
                 <% tasks.forEach((task)=> { %>
-                    <div class="container result <%=task.id%>">
+                    <div class="container result <%=task.id%> task_search">
                         <div>
-                            <input type="checkbox" id="checkbox" class="<%= task.id %>">
                             <span class="<%=task.id%>">
                                 <%= task.name %>
                             </span>

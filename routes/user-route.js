@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 router.use(express.urlencoded({ extended: false, limit: 100000, parameterLimit: 6}));
 
 router.get('/', getTasks)
-router.post('/', createTask)
+router.post('/', createTask);
 router.put('/name/:id', editTasksName);
 router.put('/desc/:id', editTasksDesc);
 router.delete('/:id', deleteTasks);
